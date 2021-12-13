@@ -4,9 +4,9 @@ export const userContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([
-    { id: 1, name: "Arghun" },
-    { id: 2, name: "Mohammad Javad" },
-    { id: 3, name: "Ehsan" },
+    { id: '1', name: "Arghun" },
+    { id: '2', name: "Mohammad Javad" },
+    { id: '3', name: "Ehsan" },
   ]);
 
   return (

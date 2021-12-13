@@ -9,12 +9,13 @@ import {
 import "./Layout.css";
 import { useContext, useState } from "react";
 import { userContext } from "../contexts/userContext";
+import ItemsDND from "../ItemsDND";
 
 const { Header, Sider, Content } = Layout;
 
 const MyLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const { users } = useContext(userContext);
+  const { users, setUsers } = useContext(userContext);
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -25,11 +26,10 @@ const MyLayout = () => {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          {users.map((user) => (
-            <Menu.Item key={user.id} icon={<UserOutlined />}>
-              {user.name}
-            </Menu.Item>
-          ))}
+          <ItemsDND items={users} setItems={setUsers} />
+          <Menu.Item key="10" icon={<UserOutlined />}>
+            Ehsan
+          </Menu.Item>
           <Menu.Item key="4" icon={<VideoCameraOutlined />}>
             nav 4
           </Menu.Item>
